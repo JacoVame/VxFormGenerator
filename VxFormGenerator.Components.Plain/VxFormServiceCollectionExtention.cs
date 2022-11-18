@@ -12,6 +12,5 @@ namespace VxFormGenerator.Settings.Plain
                 repository ?? new VxComponentsRepository(), 
                 options ?? new VxFormOptions());
         }
-
     }
 }

@@ -1,4 +1,5 @@
 
+using System.Globalization;
 using Microsoft.AspNetCore.Builder;
 
 using Microsoft.AspNetCore.Hosting;
@@ -6,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-#if BOOTSTRAP
+#if !BOOTSTRAP
  using VxFormGenerator.Settings.Bootstrap;
 #else
  using VxFormGenerator.Settings.Plain;
@@ -33,6 +34,9 @@ namespace VxFormGeneratorDemo.Server
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddVxFormGenerator();
+
+            CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("it-IT");
+            CultureInfo.DefaultThreadCurrentUICulture = new CultureInfo("it-IT");
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

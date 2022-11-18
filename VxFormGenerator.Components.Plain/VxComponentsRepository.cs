@@ -12,23 +12,19 @@ namespace VxFormGenerator.Repository.Plain
     {
         public VxComponentsRepository()
         {
-
             _ComponentDict = new Dictionary<Type, Type>()
-                  {
-                        {typeof(string),            typeof(VxInputText) },
-                        {typeof(DateTime),          typeof(InputDate<>) },
-                        {typeof(int),               typeof(InputNumber<>) },
-                        {typeof(bool),              typeof(VxInputCheckbox) },
-                        {typeof(Enum),              typeof(InputSelectWithOptions<>) },
-                        {typeof(ValueReferences),   typeof(InputCheckboxMultiple<>) },
-                        {typeof(decimal),           typeof(InputNumber<>) },
-                        { typeof(System.Single),    typeof(InputNumber<>) },
-                        {typeof(VxColor),           typeof(InputColor) }
-                  };
+            {
+                { typeof(string), typeof(VxInputText) },
+                { typeof(DateTime), typeof(InputDate<>) },
+                { typeof(int), typeof(InputNumber<>) },
+                { typeof(bool), typeof(VxInputCheckbox) },
+                { typeof(Enum), typeof(InputSelectWithOptions<>) },
+                { typeof(ValueReferences), typeof(InputCheckboxMultiple<>) },
+                { typeof(decimal), typeof(InputNumber<>) },
+                { typeof(float), typeof(InputNumber<>) },
+                { typeof(VxColor), typeof(InputColor) }
+            };
             _DefaultComponent = null;
-
-
         }
-
     }
 }

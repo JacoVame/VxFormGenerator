@@ -24,6 +24,7 @@ namespace VxFormGenerator.Form.Components.Plain
                 builder.OpenElement(index2++, "input");
                 builder.AddMultipleAttributes(index2++, AdditionalAttributes);
                 builder.AddAttribute(index2++, "type", "checkbox");
+                builder.AddAttribute(index2++, "role", "checkbox");
                 builder.AddAttribute(index2++, "class", CssClass);
                 builder.AddAttribute(index2++, "id", Id);
                 builder.AddAttribute(index2++, "checked", BindConverter.FormatValue(CurrentValue));
@@ -43,8 +44,5 @@ namespace VxFormGenerator.Form.Components.Plain
         /// <inheritdoc />
         protected override bool TryParseValueFromString(string? value, out bool result, [NotNullWhen(false)] out string? validationErrorMessage)
             => throw new NotSupportedException($"This component does not parse string inputs. Bind to the '{nameof(CurrentValue)}' property, not '{nameof(CurrentValueAsString)}'.");
-
-
     }
-
 }

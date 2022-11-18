@@ -13,6 +13,7 @@
     <title>FormGeneratorDemo</title>
     <base href="~/" />
     <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="_content/BootstrapBlazor/css/bootstrap.blazor.bundle.min.css">
     <link href="css/site.css" rel="stylesheet" />
 </head>
 <body>
@@ -32,12 +33,13 @@
     </div>
 
     <script src="_framework/blazor.server.js"></script>
+    <script src="_content/BootstrapBlazor/js/bootstrap.blazor.bundle.min.js"></script>
     <script>
         Blazor.defaultReconnectionHandler._reconnectCallback = function (d) {
             setTimeout(function () {
                 document.location.reload();
-            },10000)
-            
+            }, 10000)
+
         }
     </script>
 </body>

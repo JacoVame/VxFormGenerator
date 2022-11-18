@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Components.Rendering;
 using System;
-using System.Collections.Generic;
 using VxFormGenerator.Components.Plain.Models;
 using VxFormGenerator.Core;
 
@@ -12,8 +11,7 @@ namespace VxFormGenerator.Form.Components.Plain
     {
         public static Type TypeOfChildToRender => typeof(InputSelectOption<string>);
 
-        public static void RenderChildren(RenderTreeBuilder builder, int index, object dataContext,
-            string fieldIdentifier)
+        public static void RenderChildren(RenderTreeBuilder builder, int index, object dataContext, string fieldIdentifier)
         {
             // the builder position is between the builder.OpenComponent() and builder.CloseComponent()
             // This means that the component of InputSelect is added en stil open for changes.
@@ -28,6 +26,15 @@ namespace VxFormGenerator.Form.Components.Plain
                         // by leveraging the component InputSelectOption
                         var values = typeof(TValue).GetEnumValues();
 
+                        //  Open the InputSelectOption component
+                        _builder.OpenComponent(0, TypeOfChildToRender);
+
+                        // Set the value of the enum as a value and key parameter
+                        _builder.AddAttribute(1, nameof(InputSelectOption<string>.Value), "&nbsp;");
+                        _builder.AddAttribute(2, nameof(InputSelectOption<string>.Key), "-1");
+
+                        // Close the component
+                        _builder.CloseComponent();
 
                         foreach (var val in values)
                         {
@@ -44,11 +51,7 @@ namespace VxFormGenerator.Form.Components.Plain
                             _builder.CloseComponent();
                         }
                     }
-
-
                 }));
-
         }
-
     }
 }
